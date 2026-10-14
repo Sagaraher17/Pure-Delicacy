@@ -109,7 +109,15 @@ h1, h2, h3, h4, h5, h6, p, label, small,
   background: var(--panel-bg);
   box-shadow: 0 5px 18px rgb(31 45 80 / 7%);
   overflow: hidden;
+  color: var(--text);
   transition: transform 180ms ease, box-shadow 180ms ease, background-color 0.25s ease, color 0.25s ease;
+}
+.food-card .card-title,
+.food-card h5,
+.food-card h4,
+.food-card h3,
+.food-card p {
+  color: var(--text) !important;
 }
 .food-card:hover {
   transform: translateY(-4px);
