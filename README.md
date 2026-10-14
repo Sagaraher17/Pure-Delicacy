@@ -1,16 +1,47 @@
-# React + Vite
+# 🍽️ Pure Delicacy
+ 
+Pure Delicacy is a food menu web application built using React.js. Users can view food items, search and filter dishes, and manage the menu by adding, editing, and deleting items.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## ✨ Features
 
-Currently, two official plugins are available:
+- View food items with images and prices
+- Search food by name
+- Filter food by category
+- Add new food items
+- Edit existing food details
+- Delete food items
+- Dark and light theme toggle
+- Responsive user interface
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠️ Technologies Used
 
-## React Compiler
+- React.js
+- JavaScript
+- CSS
+- Bootstrap
+- JSON Server (for local API development)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🚀 Installation and Setup
 
-## Expanding the ESLint configuration
+1. Clone the repository:
+   git clone https://github.com/Sagaraher17/Pure-Delicacy.git
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+2. Open the project folder:
+   cd Pure-Delicacy
+
+3. Install dependencies:
+   npm install
+
+4. Start the development server:
+   npm run dev
+
+5. Open the local URL shown in your terminal.
+
+## 🌐 Live Demo
+[Visit Pure Delicacy](https://puredelicacy.netlify.app/)
+
+## 👨‍💻 Author
+**Sagar Aher**
+GitHub: [Sagaraher17](https://github.com/Sagaraher17)
+
+*Pure Delicacy — Explore delicious food in one place!*

@@ -37,6 +37,16 @@ function Menu() {
         setError("");
         setMessage("");
     };
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") || "light"
+    );
+    useEffect(() => {
+        document.documentElement.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+    }, [theme]);
+    const toggleTheme = () => {
+        setTheme(theme === "light" ? "dark" : "light");
+    };
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
@@ -116,6 +126,12 @@ function Menu() {
     const isBusy = saving || deletingId !== null;
     return (
         <main className="container py-4 py-md-5">
+            <button
+                className="theme-toggle"
+                onClick={toggleTheme}
+                aria-label="Toggle theme">
+                {theme === "light" ? "🌙" : "☀️"}
+            </button>
             {/* Header */}
             <header className="page-header text-center mb-4 mb-md-5">
                 <span className="eyebrow">REACT CRUD PROJECT</span>

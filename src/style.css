@@ -5,6 +5,26 @@
   --border: #e4e8f0;
   --text: #20283a;
   --muted: #697386;
+  --input-bg: #ffffff;
+  --hover-bg: #edf1fa;
+  color-scheme: light;
+}
+:root[data-theme="dark"] {
+  --primary: #91a8ff;
+  --page-bg: #111827;
+  --panel-bg: #1f2937;
+  --border: #374151;
+  --text: #f3f4f6;
+  --muted: #c0c8d6;
+  --input-bg: #182230;
+  --hover-bg: #293548;
+  color-scheme: dark;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+html, body, #root {
+  min-height: 100%;
 }
 body {
   margin: 0;
@@ -13,9 +33,19 @@ body {
   color: var(--text);
   background: var(--page-bg);
   -webkit-font-smoothing: antialiased;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
-button, input, select {
+button, input, select, textarea {
   font: inherit;
+}
+
+h1, h2, h3, h4, h5, h6, p, label, small, 
+#root, main, .container {
+  color: var(--text);
+}
+
+.text-body-secondary, footer {
+  color: var(--muted) !important;
 }
 .form-panel {
   max-width: 920px;
@@ -30,7 +60,7 @@ button, input, select {
   display: inline-block;
   padding: 0.4rem 0.75rem;
   background: #e9edff;
-  color: var(--primary);
+  color: #3457d5;
   font-size: 0.75rem;
   font-weight: 800;
   letter-spacing: 1.2px;
@@ -38,17 +68,22 @@ button, input, select {
 }
 .form-label {
   font-weight: 600;
-  color: #354057;
   margin-bottom: 0.5rem;
 }
 .form-control, .form-select {
   min-height: 46px;
-  border-color: #dce2ec;
+  color: var(--text);
+  background-color: var(--input-bg);
+  border-color: var(--border);
   border-radius: 10px;
 }
 .form-control:focus, .form-select:focus {
   border-color: var(--primary);
-  box-shadow: 0 0 0 0.2rem rgb(52 87 213 / 12%);
+  box-shadow: 0 0 0 0.2rem rgb(52 87 213 / 15%);
+}
+.form-control::placeholder {
+  color: var(--muted);
+  opacity: 0.8;
 }
 .btn {
   border-radius: 10px;
@@ -61,55 +96,90 @@ button, input, select {
 .btn-primary {
   background-color: var(--primary);
   border-color: var(--primary);
+  color: #fff;
+}
+:root[data-theme="dark"] .btn-primary {
+  background-color: #526fd6;
+  border-color: #526fd6;
 }
 .food-card {
+  height: 100%;
   border: 1px solid var(--border);
   border-radius: 16px;
-  background: #fff;
-  box-shadow: 0 5px 18px rgb(31 45 80 / 4%);
+  background: var(--panel-bg);
+  box-shadow: 0 5px 18px rgb(31 45 80 / 7%);
   overflow: hidden;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, background-color 0.25s ease, color 0.25s ease;
 }
 .food-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 14px 28px rgb(31 45 80 / 10%);
+  box-shadow: 0 14px 28px rgb(0 0 0 / 14%);
 }
 .food-image {
   width: 100%;
   height: 210px;
   object-fit: cover;
-  background: #edf0f5;
+  background: var(--hover-bg);
+}
+.food-card .card-body, 
+.food-card .card-footer {
+  padding: 1rem 1.15rem;
+}
+.food-card .card-footer {
+  border-top: 1px solid var(--border);
 }
 .food-price {
   color: var(--primary);
   font-size: 1.15rem;
   font-weight: 800;
 }
-.food-card .card-body,
-.food-card .card-footer {
-  padding: 1rem 1.15rem;
-  background: #fff;
-}
-.food-card .card-footer {
-  border-top: 1px solid var(--border);
-}
 .empty-state {
-  background: #fff;
-  border: 1px dashed #ccd4e2;
+  background: var(--panel-bg);
+  border: 1px dashed var(--border);
   border-radius: 16px;
   padding: 1rem;
 }
 .alert {
   border-radius: 10px;
 }
-footer {
-  color: var(--muted);
+.border-top {
+  border-color: var(--border) !important;
+}
+.theme-toggle {
+  position: fixed;
+  top: 16px;
+  right: 18px;
+  z-index: 1050;
+  width: 42px;
+  height: 42px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: var(--panel-bg);
+  box-shadow: 0 3px 12px rgb(0 0 0 / 10%);
+  cursor: pointer;
+  transition: transform 160ms ease, background-color 0.25s ease;
+}
+.theme-toggle:hover {
+  transform: scale(1.06);
+}
+.theme-toggle svg {
+  width: 20px;
+  height: 20px;
+}
+.theme-toggle:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
 }
 
 @media (max-width: 575.98px) {
   .form-panel { border-radius: 14px; }
   .food-image { height: 220px; }
+  .theme-toggle { top: 12px; right: 12px; width: 38px; height: 38px; }
 }
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
